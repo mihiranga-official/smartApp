@@ -1,0 +1,256 @@
+<div>
+  <form>
+    <div class="container">
+      <div class="item">
+        <label for="month" class="form-label">Month:</label>
+        <input type="month" class="form-control" id="month" />
+      </div>
+
+      <div class="item">
+        <label for="divisionId" class="form-label">Division:</label>
+        <select>
+          <option></option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="shiftMethodId" class="form-label">Shift:</label>
+        <select id="shiftMethodId">
+          <option></option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="sectionId" class="form-label">Section:</label>
+        <select>
+          <option></option>
+        </select>
+      </div>
+
+      <div class="item">
+        <label for="inDate" class="form-label">In Date:</label>
+        <input type="date" class="form-control" id="inDate" />
+      </div>
+
+      <div class="item">
+        <label for="inTime" class="form-label">In Time:</label>
+        <input class="form-control" id="inTime" />
+      </div>
+
+      <div class="item">
+        <label for="outDate" class="form-label">Out Date:</label>
+        <input
+          type="date"
+          [readOnly]="true"
+          class="form-control"
+          id="outDate"
+        />
+      </div>
+
+      <div class="item">
+        <label for="outTime" class="form-label">Out Time:</label>
+        <input class="form-control" id="outTime" />
+      </div>
+    </div>
+
+    <div class="container-5">
+      <div class="item">
+        <label for="pieceRateItemId" class="form-label">Piece Rate Item:</label>
+        <select style="margin-bottom: 10px">
+          <option></option>
+        </select>
+
+        <label for="qty" class="form-label">Qty:</label>
+        <input type="number" class="form-control" id="qty" style="width: 50%" />
+      </div>
+    </div>
+
+    <div class="container-5">
+      <div class="item">
+        <label for="employeeRotateGroupId" class="form-label"
+          >Employee Group:</label
+        >
+        <select>
+          <option></option>
+        </select>
+      </div>
+    </div>
+    <div class="item">
+      <button mat-raised-button color="accent" style="margin-right: 30px">
+        RESET
+      </button>
+      <button mat-raised-button color="primary" style="margin-right: 30px">
+        Check Data >>>
+      </button>
+      <button mat-raised-button color="accent">Save</button>
+      <button mat-raised-button color="primary" style="margin-left: 400px">
+        (+) Add Employee
+      </button>
+    </div>
+
+    <div class="container-t" style="height: auto; overflow-y: auto">
+      <table
+        formArrayName="jobCardEntryLevelDatas"
+        style="border: black solid 1px"
+      >
+        <thead style="position: sticky; top: 0; z-index: 999">
+          <tr style="background-color: skyblue">
+            <th class="col-SN">SN</th>
+            <th class="col-epf-no">Epf No</th>
+            <th class="col-epf-com" hidden="true">EPF Com</th>
+            <th class="col-name">Name</th>
+            <th class="col-type">Type</th>
+            <th class="col-emp-id" hidden="true">Emp Id</th>
+            <th class="col-active">Active</th>
+            <th class="col-rate-type-id" hidden="true">Rate Type Id</th>
+            <th class="col-rate-id" hidden="true">Id</th>
+            <th class="col-piece-rate-data-id" hidden="true">
+              Piece Rate Data Id
+            </th>
+            <th class="col-paying-rate">Paying Rate</th>
+            <th class="col-edit-id" hidden="true">Edit Id</th>
+            <th class="col-ab">Absent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-SN"></td>
+            <td class="col-epf-no">
+              <input type="text" class="col-epf-no" readonly="true" />
+            </td>
+            <td class="col-epf-com" hidden="true">
+              <input type="text" class="col-epf-com" readonly="true" />
+            </td>
+            <td class="col-name">
+              <input type="text" class="col-name" readonly="true" />
+            </td>
+            <td class="col-type">
+              <input type="text" class="col-type" readonly="true" />
+            </td>
+            <td class="col-emp-id" hidden="true">
+              <input type="text" class="col-emp-id" readonly="true" />
+            </td>
+            <td class="col-active">
+              <select class="col-active" style="margin-left: 15px">
+                <option value="Y">Y</option>
+                <option value="N">N</option>
+                <option></option>
+              </select>
+            </td>
+            <td class="col-rate-type-id" hidden="true">
+              <input
+                type="text"
+                class="col-rate-type-id"
+                readonly="true"
+                hidden="true"
+              />
+            </td>
+            <td class="col-rate-id" hidden="true">
+              <input
+                type="text"
+                class="col-rate-id"
+                readonly="true"
+                hidden="true"
+              />
+            </td>
+            <td class="col-piece-rate-data-id" hidden="true">
+              <input
+                type="text"
+                class="col-piece-rate-data-id"
+                readonly="true"
+                hidden="true"
+              />
+            </td>
+            <td class="col-paying-rate">
+              <input type="text" class="col-paying-rate" readonly="true" />
+            </td>
+            <td class="col-edit-id" hidden="true">
+              <input
+                type="text"
+                class="col-edit-id"
+                readonly="true"
+                hidden="true"
+              />
+            </td>
+            <td class="col-ab">
+              <button
+                class="col-ab"
+                mat-raised-button
+                color="primary"
+                style="margin: 5px"
+              >
+                X
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="container">
+      <div class="item">
+        <label for="">Number of Operators</label>
+        <input type="text" class="form-control" readonly="true" />
+      </div>
+      <div class="item">
+        <label for="">Number of Helpers</label>
+        <input type="text" class="form-control" readonly="true" />
+      </div>
+
+      <div class="item">
+        <label for="">Effect Month:</label>
+        <input type="month" class="form-control" readonly="true" />
+      </div>
+
+      <div class="item">
+        <label for="">PieceRate Header</label>
+        <input type="text" class="form-control" readonly="true" />
+      </div>
+      <div class="item">
+        <label for="">Payment Method:</label>
+        <input type="text" class="form-control" readonly="true" />
+      </div>
+
+      <div class="item">
+        <label for="">Active : </label>
+        <select class="col-active" style="margin-left: 15px">
+          <option value="Y">Y</option>
+          <option value="N">N</option>
+        </select>
+      </div>
+    </div>
+  </form>
+
+  <!-- <script>
+    console.log('test....................')
+    // Function to scale the UI based on the window size
+    function scaleUI() {
+      // Get the current width and height of the window
+      let screenWidth = window.innerWidth;
+      let screenHeight = window.innerHeight;
+
+      // Set a base size for scaling (you can change this based on your design)
+      let baseWidth = 1366; // Example base width (adjust as needed)
+      let baseHeight = 768; // Example base height (adjust as needed)
+
+      // Calculate scale factors
+      let scaleWidth = screenWidth / baseWidth;
+      let scaleHeight = screenHeight / baseHeight;
+
+      // Apply the scale to the container or entire body
+      let scaleFactor = Math.min(scaleWidth, scaleHeight); // Keep aspect ratio
+      document.body.style.transform = `scale(${scaleFactor})`;
+      document.body.style.transformOrigin = "top center"; // Keep the scaling from top-left corner
+    }
+
+    // Initial scale on page load
+    scaleUI();
+
+    // Add event listener to scale UI on window resize
+    window.addEventListener("resize", scaleUI);
+  </script> -->
+</div>
+
+<!-- <button (click)="addJobCardDataToTemplate()">Add</button>
+    <button (click)="data()">Log</button>
+    <button (click)="openPopup()" mat-raised-button color="accent">Add Employee</button> -->

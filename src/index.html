@@ -1,13 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>SmartApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>SmartApp</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+    <script>
+      console.log("script running.........");
+      // Function to scale the UI based on the window size
+      function scaleUI() {
+        // Get the current width and height of the window
+        let screenWidth = window.innerWidth;
+        let screenHeight = window.innerHeight;
+
+        // Set a base size for scaling (you can change this based on your design)
+        let baseWidth = 1366; // Example base width (adjust as needed)
+        let baseHeight = 768; // Example base height (adjust as needed)
+
+        // Calculate scale factors
+        let scaleWidth = screenWidth / baseWidth;
+        let scaleHeight = screenHeight / baseHeight;
+
+        // Apply the scale to the container or entire body
+        let scaleFactor = Math.min(scaleWidth, scaleHeight); // Keep aspect ratio
+        document.body.style.transform = `scale(${scaleFactor})`;
+        document.body.style.transformOrigin = "top center"; // Keep the scaling from top-left corner
+      }
+
+      // Initial scale on page load
+      scaleUI();
+
+      // Add event listener to scale UI on window resize
+      window.addEventListener("resize", scaleUI);
+    </script>
+  </body>
 </html>
